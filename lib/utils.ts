@@ -1,0 +1,18 @@
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+export function formatPrice(cents: number, currency: string = "USD") {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency,
+    minimumFractionDigits: 2,
+  }).format(cents / 100);
+}
+
+export function formatOrderId(id: string) {
+  return `NX-${id.slice(0, 8).toUpperCase()}`;
+}

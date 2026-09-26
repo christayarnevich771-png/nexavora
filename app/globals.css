@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  NEXAVORA brand palette
+  Ink/Black  #0B0B0D  -> hsl(240 8% 5%)
+  Surface    #17171B  -> hsl(240 8% 10%)
+  Red        #E50914  -> hsl(357 92% 47%)
+  White      #FFFFFF  -> hsl(0 0% 100%)
+  Muted      #A1A1AA  -> hsl(240 5% 65%)
+  Border     #27272A  -> hsl(240 4% 16%)
+*/
+
+@layer base {
+  :root {
+    --font-fraunces: "Fraunces Variable";
+    --font-inter: "Inter Variable";
+    --font-jbmono: "JetBrains Mono";
+
+    /* Light mode: white surface, ink text, red accent */
+    --background: 0 0% 100%;
+    --foreground: 240 8% 5%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 8% 5%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 8% 5%;
+
+    --primary: 357 92% 47%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 8% 5%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 40%;
+
+    --accent: 240 5% 94%;
+    --accent-foreground: 240 8% 5%;
+
+    --destructive: 357 92% 47%;
+    --destructive-foreground: 0 0% 100%;
+
+    --brand: 357 92% 47%;
+    --brand-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 240 8% 5%;
+
+    --border: 240 6% 88%;
+    --input: 240 6% 88%;
+    --ring: 357 92% 47%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark mode: the primary NEXAVORA identity */
+    --background: 240 8% 5%;
+    --foreground: 0 0% 100%;
+
+    --card: 240 8% 10%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 240 8% 10%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 357 92% 47%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 8% 10%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 8% 12%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 240 6% 16%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 357 92% 47%;
+    --destructive-foreground: 0 0% 100%;
+
+    --brand: 357 92% 47%;
+    --brand-foreground: 0 0% 100%;
+
+    --warning: 38 92% 55%;
+    --warning-foreground: 240 8% 5%;
+
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 357 92% 47%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  ::selection {
+    @apply bg-brand/25;
+  }
+}
+
+@layer utilities {
+  /* Ledger rule: a hairline used above transactional data (price, seller, order id) */
+  .ledger-rule {
+    background-image: repeating-linear-gradient(
+      to right,
+      hsl(var(--border)) 0,
+      hsl(var(--border)) 4px,
+      transparent 4px,
+      transparent 9px
+    );
+    height: 1px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
