@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MessageCircle, Send } from "lucide-react";
 
 const columns = [
   {
@@ -13,10 +14,10 @@ const columns = [
   {
     title: "Trust & safety",
     links: [
-      { href: "/how-it-works", label: "How escrow works" },
-      { href: "/disputes", label: "Dispute resolution" },
-      { href: "/reports", label: "Report a listing" },
-      { href: "/policies/prohibited-items", label: "Prohibited items" },
+      { href: "/orders", label: "Escrow Orders" },
+      { href: "/payment-methods", label: "Payment & Escrow" },
+      { href: "/contact", label: "Dispute Support" },
+      { href: "/contact", label: "Contact Us" },
     ],
   },
   {
@@ -29,12 +30,11 @@ const columns = [
     ],
   },
   {
-    title: "Company",
+    title: "Direct Support",
     links: [
-      { href: "/about", label: "About NEXAVORA" },
-      { href: "/policies/terms", label: "Terms of service" },
-      { href: "/policies/privacy", label: "Privacy policy" },
-      { href: "/contact", label: "Contact support" },
+      { href: "https://wa.me/639706536232", label: "WhatsApp: +63 970 653 6232" },
+      { href: "https://t.me/ruoxi_mist", label: "Telegram: @ruoxi_mist" },
+      { href: "/contact", label: "24/7 Support Desk" },
     ],
   },
 ];
@@ -44,14 +44,34 @@ export function SiteFooter() {
     <footer className="border-t border-border bg-background">
       <div className="container grid grid-cols-2 gap-10 py-14 md:grid-cols-5">
         <div className="col-span-2 md:col-span-1">
-          <span className="font-display text-lg">NEXAVORA</span>
+          <span className="font-display text-lg tracking-tight">NEXAVORA</span>
           <p className="mt-2 text-xs font-medium uppercase tracking-wide text-brand">
             Buy. Sell. Trade. Securely.
           </p>
           <p className="mt-3 max-w-[24ch] text-sm text-muted-foreground">
             A marketplace for digital products and services, built around clear order
-            records and transparent support.
+            records and transparent escrow support.
           </p>
+          <div className="mt-4 flex flex-col gap-2">
+            <a
+              href="https://wa.me/639706536232"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-md bg-secondary/60 px-3 py-1.5 text-xs text-foreground hover:bg-secondary transition-colors"
+            >
+              <MessageCircle className="h-3.5 w-3.5 text-brand" />
+              <span>WhatsApp: +63 970 653 6232</span>
+            </a>
+            <a
+              href="https://t.me/ruoxi_mist"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-md bg-secondary/60 px-3 py-1.5 text-xs text-foreground hover:bg-secondary transition-colors"
+            >
+              <Send className="h-3.5 w-3.5 text-brand" />
+              <span>Telegram: @ruoxi_mist</span>
+            </a>
+          </div>
         </div>
 
         {columns.map((col) => (
